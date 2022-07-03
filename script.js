@@ -36,17 +36,38 @@ faqPergunstas.forEach(item =>
 }
 accordionNav()
 
+function scrollSuave (){
 const linksInternos = document.querySelectorAll('a[href^="#"')
-console.log(linksInternos)
 linksInternos.forEach(item =>
   item.addEventListener('click', (e)=>
   {
     e.preventDefault()
     const href = e.target.getAttribute('href')
-    const tagIdItem = document.querySelector(href)
+    const tagIditem = document.querySelector(href)
     window.scrollTo({
-      top: tagIdItem.offsetTop,
+      top: tagIditem.offsetTop,
       behavior:"smooth"
     })
   })
   )
+}  
+scrollSuave()
+
+const sections = document.querySelectorAll('.js-scroll')
+function animarScroll(){
+if(sections.length){
+function scrollAnimado (){
+  sections.forEach((section) =>
+  {
+    const ajusteTela = window.innerHeight * 0.6;
+    const distanciaTopo = section.getBoundingClientRect().top -ajusteTela ;
+    if(distanciaTopo < 0){
+      section.classList.add('ativo')
+    }
+  }
+  )
+}
+}
+window.addEventListener('scroll',scrollAnimado)
+}
+animarScroll()

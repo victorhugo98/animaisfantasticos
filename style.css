@@ -240,3 +240,14 @@ animation: accordion .6s forwards;
     margin-bottom: 0px;
   }
 } 
+
+.js .js-scroll{
+  opacity: 0;
+  transform: translateX(-30px);
+}
+.js .js-scroll.ativo{
+  opacity: 1;
+  transition: .3s;
+  transform: translateX(0px);
+
+}
