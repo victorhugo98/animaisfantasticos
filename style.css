@@ -82,6 +82,9 @@ body{
   line-height: 1.2;
   margin-bottom: 1rem;
 }
+.animais-lista li img{
+  cursor: pointer !important;
+}
 
 .animais-lista{
   height: 370px;
@@ -106,7 +109,23 @@ body{
 .animais-descricao section {
   margin-bottom: 3rem;
 }
-
+.js .js-tab-descricao section{
+display: none;
+}
+.js-tab-descricao section.ativo{
+  display: block;
+  animation: navegarTab .6s forwards;
+}
+@keyframes navegarTab {
+  from{
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
 .faq-lista{
   grid-column: 2 / 4;
 
@@ -117,6 +136,8 @@ body{
   margin-top: 2rem;
   margin-bottom: .5rem;
   color: #e54;
+  font-size: 1rem;
+  cursor: pointer;
 }
 .faq-lista dt::before{
   content: "";
@@ -131,6 +152,34 @@ body{
   margin-bottom: .5rem;
   margin-left: 30px;
 }
+.js .js-faq-lista dd{
+  display: none;
+}
+.js .js-faq-lista dt::after{
+  content: '↴';
+  margin-left: 10px;
+}
+.js .js-faq-lista dt.ativo::after{
+  content: '⬏';
+  margin-left: 10px;
+
+}
+.js .js-faq-lista dd.ativo{
+display: block;
+animation: accordion .6s forwards;
+}
+@keyframes accordion{
+  from{
+    opacity: 0;
+    max-height: 0px;
+  }to{
+    opacity: 1;
+    max-height: 80px;
+
+  }
+
+}
+
 .mapa {
   grid-column: 2;
 }
